@@ -6,16 +6,6 @@
 
 (function($) {
 
-	var settings = {
-
-		// Parallax background effect?
-			parallax: true,
-
-		// Parallax factor (lower = more intense, higher = less intense).
-			parallaxFactor: 20
-
-	};
-
 	skel.init({
 		reset: 'full',
 		containers: '100%',
@@ -28,6 +18,23 @@
 			xsmall: { media: '(max-width: 480px)', href: 'css/style-xsmall.css' }
 		}
 	});
+        
+        $( document ).on( 'click', 'a[href^="#"]', function( e ) {
+                
+                var href = $( this ).attr( "href" );
+                var targetId = $( href );
+                
+                if( targetId.length === 0 ) {
+                    return;
+                }
+                
+                e.preventDefault();
+                
+                var pos = $( targetId ).offset().top -50;
+                $( 'html, body' ).animate({
+                    scrollTop: pos
+                });
+        });
 
 	$(function() {
 
@@ -69,57 +76,6 @@
 				}
 
 			}
-
-		// Header.
-
-			// Parallax background.
-
-				// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
-					if (skel.vars.browser == 'ie'
-					||	skel.vars.isMobile)
-						settings.parallax = false;
-
-				if (settings.parallax) {
-
-					skel.change(function() {
-
-						if (skel.isActive('medium')) {
-
-							$window.off('scroll.strata_parallax');
-							$header.css('background-position', 'top left, center center');
-
-						}
-						else {
-
-							$header.css('background-position', 'left 0px');
-
-							$window.on('scroll.strata_parallax', function() {
-								$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
-							});
-
-						}
-
-					});
-
-				}
-
-		// Main Sections: Two.
-
-			// Lightbox gallery.
-				$('#two').poptrox({
-					caption: function($a) { return $a.next('h3').text(); },
-					overlayColor: '#2c2c2c',
-					overlayOpacity: 0.85,
-					popupCloserText: '',
-					popupLoaderText: '',
-					selector: '.work-item a',
-					usePopupCaption: true,
-					usePopupDefaultStyling: false,
-					usePopupEasyClose: false,
-					usePopupNav: true,
-					windowMargin: (skel.isActive('small') ? 0 : 50)
-				});
-
 	});
 
 })(jQuery);

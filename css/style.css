@@ -1,5 +1,5 @@
 @import url(font-awesome.min.css);
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,100italic");
 
 /*
 	Strata by HTML5 UP
@@ -30,7 +30,7 @@
 		color: #a2a2a2;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
-		font-weight: 400;
+		font-weight: 100;
 		line-height: 1.75em;
 	}
 
@@ -41,14 +41,13 @@
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #49bf9d;
+		color: #ffffff;
 		text-decoration: none;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #49bf9d !important;
-			text-decoration: none;
+			color: #ffffff !important;
 		}
 
 	strong, b {
@@ -66,7 +65,7 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #787878;
-		font-weight: 400;
+		font-weight: 100;
 		line-height: 1em;
 		margin: 0 0 1em 0;
 	}
@@ -120,8 +119,10 @@
 
 	hr {
 		border: 0;
-		border-bottom: solid 2px #efefef;
-		margin: 2em 0;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                border-top: 1px solid rgba(255,255,255,0.5);
+		margin: 1.5em 0;
+                padding-left: 4em;
 	}
 
 		hr.major {
@@ -158,7 +159,10 @@
 			padding: 1em 1.5em;
 			overflow-x: auto;
 		}
-
+        
+        i {
+                padding: 0 0 0 10px;
+        }
 	.align-left {
 		text-align: left;
 	}
@@ -255,7 +259,7 @@
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #49bf9d;
+			border-color: #787878;
 		}
 
 	.select-wrapper {
@@ -593,7 +597,28 @@
 					border-top: 0;
 					padding-top: 0;
 				}
-
+                
+                ul.menu {
+                        list-style: none;
+                        margin-top: 2em;
+                        padding-left: 4em;
+                }
+                
+                        ul.menu li {
+                                border: 0;
+                                padding-top: 1.5em;
+                        }
+                        
+                        ul.menu li a, ul.menu li a:active,ul.menu li a:visited {
+                                padding-top: 1.5em;
+                                
+                        }
+                        
+                        ul.menu li a:hover {
+                                font-weight: bolder;
+                                border-bottom: dotted 1px;
+                        }
+                        
 		ul.icons {
 			cursor: default;
 			list-style: none;
@@ -818,8 +843,8 @@
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-			border-color: #49bf9d;
-			color: #49bf9d !important;
+			border-color: #787878;
+			color: #787878 !important;
 		}
 
 		input[type="submit"]:active,
@@ -827,8 +852,8 @@
 		input[type="button"]:active,
 		.button:active {
 			background-color: rgba(73, 191, 157, 0.1);
-			border-color: #49bf9d;
-			color: #49bf9d !important;
+			border-color: #787878
+			color: #787878 !important;
 		}
 
 		input[type="submit"].icon,
@@ -873,8 +898,8 @@
 		input[type="reset"].special,
 		input[type="button"].special,
 		.button.special {
-			background-color: #49bf9d;
-			border-color: #49bf9d;
+			background-color: #787878;
+			border-color: #787878;
 			color: #ffffff !important;
 		}
 
@@ -882,8 +907,8 @@
 			input[type="reset"].special:hover,
 			input[type="button"].special:hover,
 			.button.special:hover {
-				background-color: #5cc6a7;
-				border-color: #5cc6a7;
+				background-color: #787878;
+				border-color: #787878;
 			}
 
 			input[type="submit"].special:active,
@@ -931,20 +956,15 @@
 /* Header */
 
 	#header {
-		background-color: #1f1815;
-		background-attachment: scroll,								fixed;
-		background-image: url("images/overlay.png"), url("../images/bg.jpg");
-		background-position: top left,							top left;
-		background-repeat: repeat,								no-repeat;
-		background-size: auto,								auto 100%;
+		background-color: #29A6E5;
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
-		padding: 8em 4em 0 0;
+		padding: 2em 4em 0 4em;
 		position: fixed;
 		text-align: right;
 		top: 0;
-		width: 35%;
+		width: 25%;
 	}
 
 		#header strong, #header b {
@@ -957,8 +977,7 @@
 
 		#header h1 {
 			color: rgba(255, 255, 255, 0.5);
-			font-size: 1.35em;
-			line-height: 1.75em;
+			font-size: 1.25em;
 			margin: 0;
 		}
 
@@ -966,16 +985,21 @@
 			margin: 0 0 1em 0;
 			width: 6.25em;
 		}
-
+                
+  /* Navigation */ 
+        
+        #navigation {
+                margin-top: 4em;
+        }
 /* Footer */
 
 	#footer {
 		bottom: 0;
 		left: 0;
-		padding: 0 4em 6em 0;
+		padding: 0 4em 2em 0;
 		position: fixed;
 		text-align: right;
-		width: 35%;
+		width: 25%;
 	}
 
 		#footer .icons {
