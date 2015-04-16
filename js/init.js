@@ -19,21 +19,36 @@
 		}
 	});
         
-        $( document ).on( 'click', 'a[href^="#"]', function( e ) {
-                
-                var href = $( this ).attr( "href" );
-                var targetId = $( href );
-                
-                if( targetId.length === 0 ) {
-                    return;
+        function scrollToElement( speed, elem ) {
+            speed = speed || 500;
+            elem = elem || null;
+            if( elem ) {        // elem exist
+                console.log(elem);
+                var $target = $( elem );
+                if( $target.length ) {
+                    // Target exists
+                    $( 'html, body' ).animate( {
+                        scrollTop: $target.offset().top
+                    }, speed );
                 }
-                
-                e.preventDefault();
-                
-                var pos = $( targetId ).offset().top -50;
-                $( 'html, body' ).animate({
-                    scrollTop: pos
+            }
+        }
+        $(function() {
+                // Selezioniamo i link che hanno un hash
+                $( "a[href^='#']" ).click(function( e ) {
+                        e.preventDefault(); // Blocchiamo l'azione predefinita
+                        var linkHash = $( this ).attr( "href" ); // Otteniamo l'hash
+                        scrollToElement( 400, linkHash );
                 });
+        });
+        
+        // Setup avatar image
+        $(function() {
+                // Get window height
+                var height = window.innerHeight;
+                if( height < 700 ) {
+                    $('.avatar').css( 'display', 'hidden');
+                }
         });
 
 	$(function() {
@@ -76,6 +91,71 @@
 				}
 
 			}
+                        
+        });
+        
+        // Setup contact form submission
+        $(function() {
+                        
+                // Get the form
+                        var form = $('#contact-form');
+                      
+                // Get the messages div
+                        var formMessages = $('#form-messages');
+                        
+                // Get Submit button
+                        var submit = form.find(':submit');
+                                
+                // Event listener for the form
+                        $(form).submit(function(event) {
+                                event.preventDefault();
+                                
+                                
+                                // Serialize form data
+                                        var formData = $(form).serialize();
+                                
+                                // Avoid further submissions
+                                        submit.val('Sending...');
+                                        submit.attr('disabled', 'disabled');
+                                        
+                                // Submit the form using ajax
+                                        $.ajax({
+                                                type: "POST",
+                                                url: $(form).attr('action'),
+                                                data: formData
+                                        })
+                                                .done(function( response ) {
+                                                // Make sure the formMessages div has the success class
+                                                        $(formMessages).removeClass('error');
+                                                        $(formMessages).addClass('success');
+                                                        
+                                                // Set the message text
+                                                        $(formMessages).text(response);
+                                                
+                                                // Cleat the form
+                                                        $('#name').val('');
+                                                        $('#email').val('');
+                                                        $('#message').val('');
+                                        })     
+                                                .fail(function(data) {
+                                                // Make sure the formMessages div has the success class
+                                                        $(formMessages).addClass('error');
+                                                        $(formMessages).removeClass('success');
+                                                        
+                                                // Set the message text
+                                                        console.log("Response text: " + data.responseText);
+                                                        if(data.responseText !== '') {
+                                                            $(formMessages).text(data.responseText);
+                                                        } else {
+                                                            $(formMessages).text('Oops! An error occured and your message could not be sent.')
+                                                        }
+                                        });
+                                        
+                                        // Ripristinate submit         
+                                                submit.val( "Send Message" );
+                                                submit.removeAttr( "disabled" );
+                        });
+                        
 	});
 
 })(jQuery);

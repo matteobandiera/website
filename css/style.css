@@ -1,5 +1,5 @@
 @import url(font-awesome.min.css);
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,100italic");
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400);
 
 /*
 	Strata by HTML5 UP
@@ -28,9 +28,9 @@
 
 	body, input, select, textarea {
 		color: #a2a2a2;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: 'Roboto', sans-serif;
 		font-size: 16pt;
-		font-weight: 100;
+		font-weight: 300;
 		line-height: 1.75em;
 	}
 
@@ -558,6 +558,8 @@
 
 			.image.avatar img {
 				border-radius: 100%;
+                                border: #ffffff 2px solid;
+                                padding: 1px;
 				width: 100%;
 			}
 
@@ -600,18 +602,17 @@
                 
                 ul.menu {
                         list-style: none;
-                        margin-top: 2em;
-                        padding-left: 4em;
+                        padding-left: 0;
                 }
                 
                         ul.menu li {
                                 border: 0;
                                 padding-top: 1.5em;
+                                padding-left: 0;
                         }
                         
-                        ul.menu li a, ul.menu li a:active,ul.menu li a:visited {
-                                padding-top: 1.5em;
-                                
+                        ul.menu li:first-child {
+                                padding-top: 0;
                         }
                         
                         ul.menu li a:hover {
@@ -956,11 +957,11 @@
 /* Header */
 
 	#header {
-		background-color: #29A6E5;
+		background-color: #007FFF;
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
-		padding: 2em 4em 0 4em;
+		padding: 2em 4em 0 2em;
 		position: fixed;
 		text-align: right;
 		top: 0;
@@ -983,20 +984,29 @@
 
 		#header .image.avatar {
 			margin: 0 0 1em 0;
-			width: 6.25em;
+			width: 7.25em;
 		}
                 
   /* Navigation */ 
+            #navigation {
+                    overflow: auto;
+            }
         
-        #navigation {
-                margin-top: 4em;
-        }
+
 /* Footer */
 
+        #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
+		color: #ffffff;
+        }
+        
+        #footer h5 {
+                color: rgba(255, 255, 255, 0.5);
+        }
+                
 	#footer {
 		bottom: 0;
 		left: 0;
-		padding: 0 4em 2em 0;
+		padding: 0 4em 2em 2em;
 		position: fixed;
 		text-align: right;
 		width: 25%;
@@ -1007,11 +1017,11 @@
 		}
 
 			#footer .icons a {
-				color: rgba(255, 255, 255, 0.4);
+				color: #ffffff;
 			}
 
 		#footer .copyright {
-			color: rgba(255, 255, 255, 0.4);
+			color: #ffffff;
 			font-size: 0.8em;
 			list-style: none;
 			margin: 1em 0 0 0;
@@ -1039,10 +1049,10 @@
 /* Main */
 
 	#main {
-		margin-left: 35%;
+		margin-left: 30%;
 		max-width: 54em;
-		padding: 8em 4em 4em 4em;
-		width: calc(100% - 35%);
+		padding: 4em 4em 4em 4em;
+		width: calc(100% - 30%);
 	}
 
 		#main > section {
@@ -1056,6 +1066,168 @@
 				margin-top: 0;
 				padding-top: 0;
 			}
+
+/* Skills */
+
+        progress[value] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border: none;
+                background-size: auto;               
+                height: 50px;
+                width: 100%;
+                color: #eee
+        }
+        
+        progress[value]::-webkit-progress-bar {
+            background: #eee;
+        }
+        
+        /* Style the bar colors */
+        #skill-1::-webkit-progress-value {
+            background-color: #4ecdc4;
+        }
+
+        #skill-1::-moz-progress-bar {
+            background-color: #4ecdc4;
+        }
+        
+        #skill-2::-webkit-progress-value {
+            background-color: #ff6b6b;
+        }
+        
+        #skill-2::-moz-progress-bar {
+            background-color: #ff6b6b;
+        }
+        
+        #skill-3::-webkit-progress-value {
+            background-color: #ff9e2c;
+        }
+        
+        #skill-3::-moz-progress-bar {
+            background-color: #ff9e2c;
+        }
+        
+        #skill-4::-webkit-progress-value {
+            background-color: #0bff85;
+        }
+        
+        #skill-4::-moz-progress-bar {
+            background-color: #0bff85;
+        }
+        
+        #skill-5::-webkit-progress-value {
+            background-color: #b265ff;
+        }
+        
+        #skill-5::-moz-progress-bar {
+            background-color: #b265ff;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .skill {
+            margin-bottom: 1em;
+            position: relative;
+            padding-right: 2em;
+            padding-bottom: 1em;
+        }
+        
+        .skill h3 {
+            color: #ffffff;
+            font-size: 1em;
+            left: 1.5em;
+            top: 1em;
+            line-height: 1;
+            position: absolute;
+        }
+        
+        
+        /* Animations */
+        .skill ::-webkit-progress-value {
+            -webkit-animation: bar-fill 2s;
+            
+            width: 0px;
+        }
+        
+        @-webkit-keyframes bar-fill {
+            0% { 
+                width: 0; 
+            }
+        }
+        
+        @keyframes bar-fill {
+            0% { 
+                width: 0; 
+            }
+        }
+        
+/* Readings */
+        
+        .readings {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                margin-top: 2em;
+                margin-bottom: 2em;
+        }
+        
+        ul.readings li a{
+            color: #787878;
+            margin-left: 1em;
+        }
+        
+        ul.readings li a:hover {
+            font-weight: bolder;
+            color: #787878!important;
+        }
+/* Contact Form */
+        ul.actions li input[type="submit"] {
+                margin-top: 2em;
+        }
+        
+        .success {
+                -moz-appearance: none;
+		-webkit-appearance: none;
+		-o-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		border-radius: 0.35em;
+		border: solid 2px transparent;
+		color: #468847;
+                background-color: #dff0d8;
+		display: block;
+		outline: 0;
+		padding: 0 0.75em;
+		text-decoration: none;
+		width: 100%;
+                line-height: 1.75em;
+                font-size: 16pt;
+        }
+        
+        .error {
+                -moz-appearance: none;
+		-webkit-appearance: none;
+		-o-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		border-radius: 0.35em;
+		border: solid 2px transparent;
+		color: #b94a48;
+                background-color: #f2dede;
+		display: block;
+		outline: 0;
+		padding: 0 0.75em;
+		text-decoration: none;
+		width: 100%;
+                line-height: 1.75em;
+                font-size: 16pt;
+        }
 
 /* Poptrox */
 	@-moz-keyframes spin { 0% { -moz-transform: rotate(0deg); -webkit-transform: rotate(0deg); -o-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg); } 100% { -moz-transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); -ms-transform: rotate(360deg); transform: rotate(360deg); } }

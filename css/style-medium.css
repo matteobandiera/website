@@ -26,6 +26,10 @@
 		top: auto;
 		width: 100%;
 	}
+        
+                #header hr {
+                        display: none;
+                }
 
 		#header h1 {
 			font-size: 1.75em;
@@ -53,6 +57,10 @@
 		width: 100%;
 	}
 
+                #footer hr {
+                        display: none;
+                }
+                
 		#footer .icons {
 			margin: 0 0 1em 0;
 		}
