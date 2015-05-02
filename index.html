@@ -19,6 +19,7 @@
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
+            <link rel="stylesheet" href="css/loaders/loaders.css"/>
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
@@ -26,7 +27,7 @@
 
 		<!-- Header -->
 			<header id="header">
-				<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="avatar" /></a>
+				
 				<h1><strong>Matteo Bandiera</strong>,<br />
                    Front end web developer<br />
                    from Italy.</h1>
@@ -40,7 +41,15 @@
                    </ul>
                 </nav>
 			</header>
+        
+        <!-- Loader -->
+        <div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
 
+		</div>
+        
 		<!-- Main -->
 			<div id="main">
 				<!-- About -->
@@ -64,33 +73,33 @@
                                  <ul class="skill-list">
                                        <li class="skill">
                                              <h3>HTML5</h3>
-                                             <progress id="skill-1" max="100" value="85">
-                                                   <strong>Skill Level: 85%</strong>
-                                             </progress>
+                                             <div class="progress html">
+                                                <span style="width: 85%"></span>
+                                             </div>
                                        </li>
                                        <li class="skill">
                                              <h3>CSS</h3>
-                                             <progress id="skill-2" max="100" value="75">
-                                                   <strong>Skill Level: 75%</strong>
-                                             </progress>
+                                             <div class="progress css">
+                                                <span style="width: 75%"></span>
+                                             </div>
                                        </li>
                                        <li class="skill">
                                              <h3>Javascript</h3>
-                                             <progress id="skill-3" max="100" value="85">
-                                                   <strong>Skill Level: 85%</strong>
-                                             </progress>
+                                             <div class="progress javascript">
+                                                <span style="width: 85%"></span>
+                                             </div>
                                        </li>
                                        <li class="skill">
                                              <h3>jQuery</h3>
-                                             <progress id="skill-4" max="100" value="70">
-                                                   <strong>Skill Level: 70%</strong>
-                                             </progress>
+                                             <div class="progress jquery">
+                                                <span style="width: 70%"></span>
+                                             </div>
                                        </li>
                                        <li class="skill">
                                              <h3>PHP</h3>
-                                             <progress id="skill-5" max="100" value="70">
-                                                   <strong>Skill Level: 70%</strong>
-                                             </progress>
+                                             <div class="progress php">
+                                                <span style="width: 70%"></span>
+                                             </div>
                                        </li>
                                  </ul>
                               </div>
@@ -116,11 +125,11 @@
                            <p>A few projects I worked on.</p>
                            <div class="row">
                               <article class="6u 12u$(xsmall) work-item">
-                                 <a href="#" class="image fit thumb">
-                                    <img src="images/thumbs/01.jpg" alt="title" />
+                                 <a href="http://www.paulferriter.com" target="_blank" class="image fit thumb">
+                                    <img src="images/thumbs/01.jpg" alt="Paul Ferriter" />
                                  </a>
                                  <h3>Paul Ferriter - Portfolio</h3>
-                                 <p>HTML, CSS, Javascript, Photoshop</p>
+                                 <p>HTML, CSS, Javascript, Squarespace, Photoshop</p>
                               </article>
                               
                               <article class="6u 12u$(xsmall) work-item">
@@ -193,7 +202,6 @@
 				<ul class="copyright">
                    <li><i class="fa fa-copyright"></i> 2015 - Matteo Bandiera</li>
 				</ul>
-			</footer>
-
-	</body>
+            </footer>
+    </body>
 </html>
