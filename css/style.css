@@ -259,7 +259,7 @@
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #787878;
+			border-color: #007FFF;
 		}
 
 	.select-wrapper {
@@ -548,21 +548,6 @@
 				width: 100%;
 			}
 
-		.image.avatar {
-			border-radius: 100%;
-		}
-
-			.image.avatar:before {
-				display: none;
-			}
-
-			.image.avatar img {
-				border-radius: 100%;
-                                border: #ffffff 2px solid;
-                                padding: 1px;
-				width: 100%;
-			}
-
 /* List */
 
 	ol {
@@ -844,7 +829,7 @@
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-			border-color: #787878;
+			border-color: #007FFF;
 			color: #787878 !important;
 		}
 
@@ -853,7 +838,7 @@
 		input[type="button"]:active,
 		.button:active {
 			background-color: rgba(73, 191, 157, 0.1);
-			border-color: #787878
+			border-color: #007FFF;
 			color: #787878 !important;
 		}
 
@@ -982,10 +967,6 @@
 			margin: 0;
 		}
 
-		#header .image.avatar {
-			margin: 0 0 1em 0;
-			width: 7.25em;
-		}
                 
   /* Navigation */ 
             #navigation {
@@ -1069,62 +1050,36 @@
 
 /* Skills */
 
-        progress[value] {
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                border: none;
-                background-size: auto;               
-                height: 50px;
-                width: 100%;
-                color: #eee
-        }
-        
-        progress[value]::-webkit-progress-bar {
-            background: #eee;
-        }
-        
-        /* Style the bar colors */
-        #skill-1::-webkit-progress-value {
-            background-color: #4ecdc4;
-        }
+         .progress {
+             height: 50px;
+             position: relative;
+             color: #eee;
+             background-color: #eee;
+             box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+             width: 100%;
+         }
+         .progress > span {
+            display: block;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+         }
+         .html > span {
+             background-color: #4ecdc4;
+         }
+         .css > span {
+             background-color: #ff6b6b;
+         }
+         .javascript > span {
+             background-color: #ff9e2c;
+         } 
+         .jquery > span {
+             background-color: #0bff85;
+         }
+         .php > span {
+             background-color: #b265ff;
+         }
 
-        #skill-1::-moz-progress-bar {
-            background-color: #4ecdc4;
-        }
-        
-        #skill-2::-webkit-progress-value {
-            background-color: #ff6b6b;
-        }
-        
-        #skill-2::-moz-progress-bar {
-            background-color: #ff6b6b;
-        }
-        
-        #skill-3::-webkit-progress-value {
-            background-color: #ff9e2c;
-        }
-        
-        #skill-3::-moz-progress-bar {
-            background-color: #ff9e2c;
-        }
-        
-        #skill-4::-webkit-progress-value {
-            background-color: #0bff85;
-        }
-        
-        #skill-4::-moz-progress-bar {
-            background-color: #0bff85;
-        }
-        
-        #skill-5::-webkit-progress-value {
-            background-color: #b265ff;
-        }
-        
-        #skill-5::-moz-progress-bar {
-            background-color: #b265ff;
-        }
-        
         .skill-list {
             list-style-type: none;
             margin: 0;
@@ -1145,28 +1100,8 @@
             top: 1em;
             line-height: 1;
             position: absolute;
+            z-index: 50;
         }
-        
-        
-        /* Animations */
-        .skill ::-webkit-progress-value {
-            -webkit-animation: bar-fill 2s;
-            
-            width: 0px;
-        }
-        
-        @-webkit-keyframes bar-fill {
-            0% { 
-                width: 0; 
-            }
-        }
-        
-        @keyframes bar-fill {
-            0% { 
-                width: 0; 
-            }
-        }
-        
 /* Readings */
         
         .readings {
@@ -1440,3 +1375,151 @@
 	body.is-touch .poptrox-popup .closer {
 		opacity: 1.0 !important;
 	}
+        
+        
+/* Loader */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.loader-text {
+    z-index: 1001;
+    color: #ffffff;
+    position: relative;
+    top: 100px;
+    left: 50%;
+    right: 50%;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+
+    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+
+    z-index: 1001;
+}
+
+    #loader:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #e74c3c;
+
+        -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+        animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    #loader:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #f9c922;
+
+        -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+          animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    @-webkit-keyframes spin {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+    }
+    @keyframes spin {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+    }
+
+    #loader-wrapper .loader-section {
+        position: fixed;
+        top: 0;
+        width: 51%;
+        height: 100%;
+        background: #007FFF;
+        z-index: 1000;
+        -webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: translateX(0);  /* IE 9 */
+        transform: translateX(0);  /* Firefox 16+, IE 10+, Opera */
+    }
+
+    #loader-wrapper .loader-section.section-left {
+        left: 0;
+    }
+
+    #loader-wrapper .loader-section.section-right {
+        right: 0;
+    }
+
+    /* Loaded */
+    .loaded #loader-wrapper .loader-section.section-left {
+        -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: translateX(-100%);  /* IE 9 */
+                transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
+
+        -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  
+                transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader-wrapper .loader-section.section-right {
+        -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: translateX(100%);  /* IE 9 */
+                transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
+
+-webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  
+        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+    
+    .loaded #loader {
+        opacity: 0;
+        -webkit-transition: all 0.3s ease-out;  
+                transition: all 0.3s ease-out;
+    }
+    .loaded #loader-wrapper {
+        visibility: hidden;
+
+        -webkit-transform: translateY(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: translateY(-100%);  /* IE 9 */
+                transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
+
+        -webkit-transition: all 0.3s 1s ease-out;  
+                transition: all 0.3s 1s ease-out;
+    }
