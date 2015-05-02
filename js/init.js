@@ -1,9 +1,3 @@
-/*
-	Strata by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function($) {
 
 	skel.init({
@@ -40,15 +34,6 @@
                         var linkHash = $( this ).attr( "href" ); // Otteniamo l'hash
                         scrollToElement( 400, linkHash );
                 });
-        });
-        
-        // Setup avatar image
-        $(function() {
-                // Get window height
-                var height = window.innerHeight;
-                if( height < 700 ) {
-                    $('.avatar').css( 'display', 'hidden');
-                }
         });
 
 	$(function() {
@@ -157,5 +142,34 @@
                         });
                         
 	});
+//        $(function(){
+//            $(".progress > span").each( function() {
+//            $(this)
+//               .data("origWidth", $(this).width())
+//               .width(0)
+//               .animate({
+//                 width: $(this).data("origWidth") + "%" // or + "%" if fluid
+//               }, 1200);
+//         });
+//        });
+        
+        $(document).ready(function() {
+	
+            setTimeout(function(){
+                    $('body').addClass('loaded');
+                    
+                    $(".progress > span").each( function() {
+                        console.log(this);
+            $(this)
+               .data("origWidth", $(this).width())
+               .width(0)
+               .animate({
+                 width: $(this).data("origWidth")// or + "%" if fluid
+               }, 1200);
+         });
+            }, 3000);
+          
+        });
+        
 
 })(jQuery);
